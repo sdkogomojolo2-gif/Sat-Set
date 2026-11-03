@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Times New Roman', Times, 'Nimbus Roman No9 L', FreeSerif, serif;
+  --font-serif: 'Times New Roman', Times, 'Nimbus Roman No9 L', FreeSerif, serif;
+  --font-mono: 'Times New Roman', Times, 'Nimbus Roman No9 L', FreeSerif, serif;
+}
+
+@layer base {
+  html, body, #root {
+    font-family: 'Times New Roman', Times, 'Nimbus Roman No9 L', FreeSerif, serif !important;
+  }
+
+  *, *::before, *::after {
+    font-family: 'Times New Roman', Times, 'Nimbus Roman No9 L', FreeSerif, serif !important;
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    margin: 0;
+    padding: 0;
+  }
+
+  input, select, textarea, button, optgroup, option, label, p, span, div, h1, h2, h3, h4, h5, h6, table, th, td {
+    font-family: 'Times New Roman', Times, 'Nimbus Roman No9 L', FreeSerif, serif !important;
+  }
+}
+
+/* Custom Document View & Print Styling - KERTAS A4 STANDAR DINAS */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm 12mm 15mm 12mm;
+  }
+
+  /* Support landscape on elements marked with .print-landscape */
+  .print-landscape {
+    page: landscape-page;
+  }
+
+  @page landscape-page {
+    size: A4 landscape;
+    margin: 12mm 10mm 12mm 10mm;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide non-printable UI elements during print */
+  .no-print, header, nav, button, aside, .generator-panel, .refine-toolbar, .preset-bar, .fixed-sidebar, input[type="file"] {
+    display: none !important;
+  }
+
+  /* Force main content container to take full width when printing */
+  .md\:ml-64, .lg\:ml-72 {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-document-container {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  table {
+    page-break-inside: auto;
+    font-size: 8pt !important;
+    border-collapse: collapse;
+    width: 100% !important;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  th, td {
+    border: 1px solid #000000 !important;
+    padding: 2.5px 3.5px !important;
+    word-break: normal;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}
+
+/* Rich Document Styling in Times New Roman */
+.document-content {
+  font-family: 'Times New Roman', Times, serif !important;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.document-content h1 {
+  font-size: 14pt;
+  font-weight: bold;
+  color: #000000;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 0.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.document-content h2 {
+  font-size: 12.5pt;
+  font-weight: bold;
+  color: #000000;
+  border-left: 4px solid #1e3a8a;
+  padding-left: 0.6rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.document-content h3 {
+  font-size: 11.5pt;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.document-content h4 {
+  font-size: 11pt;
+  font-weight: bold;
+  color: #1e293b;
+  margin-top: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.document-content p {
+  margin-bottom: 0.6rem;
+  text-align: justify;
+}
+
+.document-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.document-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.document-content li {
+  margin-bottom: 0.3rem;
+}
+
+.document-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
+  font-size: 10pt;
+}
+
+.document-content th {
+  background-color: #f1f5f9;
+  color: #000000;
+  font-weight: bold;
+  text-align: left;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #334155;
+}
+
+.document-content td {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #cbd5e1;
+  vertical-align: top;
+}
+
+.document-content tr:nth-child(even) td {
+  background-color: #f8fafc;
+}
+
+.document-content blockquote {
+  border-left: 3px solid #0284c7;
+  background-color: #f0f9ff;
+  padding: 0.6rem 0.85rem;
+  margin: 0.8rem 0;
+  border-radius: 0 0.35rem 0.35rem 0;
+  color: #0369a1;
+  font-style: italic;
+}
+
+.document-content hr {
+  border: none;
+  border-top: 1px solid #cbd5e1;
+  margin: 1.2rem 0;
+}
+
+.document-content strong {
+  color: #000000;
+}
+
+/* Custom locked sidebar scroll prevention - Fixed on left, cannot be scrolled */
+.sidebar-locked {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+  user-select: none;
+  z-index: 40;
+}
+

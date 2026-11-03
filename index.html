@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Gracefully ignore disabled/sandboxed WebSocket HMR connection attempts
+      window.addEventListener('error', function(event) {
+        if (
+          event.message &&
+          (event.message.includes('WebSocket') ||
+           event.message.includes('@vite/client') ||
+           event.message.includes('createWebSocketModuleRunnerTransport'))
+        ) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      });
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event.reason && (event.reason.message || event.reason.stack || String(event.reason));
+        if (
+          reason &&
+          (reason.includes('WebSocket') ||
+           reason.includes('@vite/client') ||
+           reason.includes('createWebSocketModuleRunnerTransport'))
+        ) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      });
+    </script>
+    <title>Sat-Set - Generator Modul Ajar & RPP Kurikulum Merdeka</title>
+    <meta name="description" content="Aplikasi konsultan edukasi dan penyusun Modul Ajar / RPP Kurikulum Merdeka super cepat, profesional, siap cetak dengan diferensiasi dan format dinas pendidikan." />
+    <meta property="og:title" content="Sat-Set - Generator Modul Ajar & RPP Kurikulum Merdeka" />
+    <meta property="og:description" content="Aplikasi konsultan edukasi dan penyusun Modul Ajar / RPP Kurikulum Merdeka super cepat, profesional, siap cetak dengan diferensiasi dan format dinas pendidikan." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-sky-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+

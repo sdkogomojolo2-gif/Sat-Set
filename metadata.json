@@ -1,0 +1,8 @@
+{
+  "name": "Sat-Set - Generator Modul Ajar & RPP Kurikulum Merdeka",
+  "description": "Aplikasi konsultan edukasi dan penyusun Modul Ajar / RPP Kurikulum Merdeka super cepat, profesional, siap cetak dengan diferensiasi dan keterampilan abad 21.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
